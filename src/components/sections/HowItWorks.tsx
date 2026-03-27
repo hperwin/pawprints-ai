@@ -5,19 +5,22 @@ const steps = [
     icon: Upload,
     number: "01",
     title: "Upload a photo",
-    description: "Front-facing, good lighting. That one where they're looking right at you? Perfect.",
+    description:
+      "Front-facing, good lighting. Phone photos work great — that one where they're looking right at you is perfect.",
   },
   {
     icon: Palette,
     number: "02",
-    title: "Pick a style",
-    description: "Renaissance noble? Anime hero? Pop art icon? Choose and we'll handle the rest.",
+    title: "Pick your style",
+    description:
+      "Watercolor dream? Renaissance noble? Memorial tribute? Choose from 8 curated styles and we handle the rest.",
   },
   {
     icon: Download,
     number: "03",
-    title: "Download your portrait",
-    description: "High-res, print-ready, and frame-worthy. Ready in under 60 seconds.",
+    title: "Download and frame",
+    description:
+      "Print-ready in under 60 seconds. No 2-week wait for a commission. No back-and-forth with an artist. Just your pet, as art.",
   },
 ];
 
@@ -27,10 +30,10 @@ const HowItWorks = () => {
       <div className="container mx-auto px-6">
         <div className="text-center max-w-2xl mx-auto mb-16">
           <h2 className="font-display text-3xl md:text-4xl text-foreground">
-            Three steps. Sixty seconds. One masterpiece.
+            60 seconds from photo to frame-worthy art.
           </h2>
           <p className="mt-4 text-lg text-muted-foreground font-body">
-            No artistic skill required. No 2-week wait for commission art.
+            No artistic skill. No 2-week wait. No commission artist emails.
           </p>
         </div>
 

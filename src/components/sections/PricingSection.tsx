@@ -17,16 +17,16 @@ const PricingSection = () => {
       name: "Free",
       price: "$0",
       period: "forever",
-      description: "Try it out with your favorite pet photo.",
-      cta: "Get Started",
+      description: "See the quality for yourself. No credit card.",
+      cta: "Create Your Free Portrait",
       ctaVariant: "outline" as const,
       highlight: false,
       features: [
         { text: "1 portrait", included: true },
-        { text: "Standard resolution", included: true },
-        { text: "All 5 styles", included: true },
+        { text: "Standard resolution (1024x1024)", included: true },
+        { text: "All 8 styles including Memorial", included: true },
         { text: "Watermark-free", included: false },
-        { text: "New monthly styles", included: false },
+        { text: "Commercial rights", included: false },
         { text: "Priority generation", included: false },
       ],
     },
@@ -34,17 +34,17 @@ const PricingSection = () => {
       name: "Pro",
       price: proPrice,
       period: proPeriod,
-      description: "Unlimited portraits. Every style. No watermarks.",
+      description: "Unlimited portraits. Print-ready quality. Full commercial rights.",
       cta: "Start Free Trial",
       ctaVariant: "default" as const,
       highlight: true,
       features: [
         { text: "Unlimited portraits", included: true },
-        { text: "High-res downloads (2048x2048)", included: true },
-        { text: "All 5 styles + new monthly styles", included: true },
+        { text: "Print-ready downloads (2048x2048)", included: true },
+        { text: "All 8 styles + new monthly drops", included: true },
         { text: "Watermark-free", included: true },
+        { text: "Full commercial rights", included: true },
         { text: "Priority generation", included: true },
-        { text: "Portrait history (30 days)", included: true },
       ],
     },
   ];
@@ -54,10 +54,10 @@ const PricingSection = () => {
       <div className="container mx-auto px-6">
         <div className="text-center max-w-2xl mx-auto mb-12">
           <h2 className="font-display text-3xl md:text-4xl text-foreground">
-            One portrait free. Unlimited for less than a coffee.
+            One free portrait. Unlimited for less than a latte.
           </h2>
           <p className="mt-4 text-lg text-muted-foreground font-body">
-            No credit card required to start. Cancel anytime.
+            No credit card to start. Cancel anytime. Less than what you'd pay for a single commission sketch.
           </p>
         </div>
 

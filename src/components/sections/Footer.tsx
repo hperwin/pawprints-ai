@@ -15,8 +15,8 @@ const Footer = () => {
               </span>
             </Link>
             <p className="font-body text-sm text-muted-foreground leading-relaxed max-w-xs">
-              Turn your favorite pet photo into a frame-worthy portrait.
-              Renaissance, anime, pop art, and more.
+              Custom pet portraits from your photo in 60 seconds.
+              Watercolor, renaissance, oil painting, memorial, and more.
             </p>
           </div>
 
