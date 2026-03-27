@@ -3,25 +3,14 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ArrowRight, Palette, Clock, Sparkles } from "lucide-react";
 
-const styles = [
-  { label: "Watercolor", emoji: "💧", color: "bg-sky-100 text-sky-800" },
-  { label: "Renaissance", emoji: "🎨", color: "bg-amber-100 text-amber-800" },
-  { label: "Oil Painting", emoji: "🖼️", color: "bg-orange-100 text-orange-800" },
-  { label: "Pop Art", emoji: "🌈", color: "bg-pink-100 text-pink-800" },
-  { label: "Cartoon", emoji: "✏️", color: "bg-green-100 text-green-800" },
-  { label: "Anime", emoji: "✨", color: "bg-purple-100 text-purple-800" },
-  { label: "Memorial", emoji: "🕊️", color: "bg-slate-100 text-slate-700" },
-  { label: "Impressionist", emoji: "🌻", color: "bg-yellow-100 text-yellow-800" },
-];
-
 const HeroSection = () => {
   return (
     <section className="relative pt-32 pb-24 md:pt-40 md:pb-32 overflow-hidden">
-      {/* Subtle warm radial background */}
+      {/* Warm radial background */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_hsl(38_90%_44%_/_0.06),_transparent_70%)]" />
 
       <div className="container mx-auto px-6 relative">
-        <div className="max-w-3xl mx-auto text-center">
+        <div className="max-w-3xl mx-auto text-center fade-in-up">
           <Badge
             variant="secondary"
             className="mb-6 px-4 py-1.5 bg-amber-50 text-amber-700 border border-amber-200 font-body text-sm"
@@ -45,7 +34,7 @@ const HeroSection = () => {
             <Link to="/signup">
               <Button
                 size="lg"
-                className="font-body text-base px-8 py-6 bg-primary hover:bg-amber-700 text-primary-foreground shadow-lg shadow-amber-600/20"
+                className="font-body text-base px-8 py-6 bg-primary hover:bg-amber-700 text-primary-foreground shadow-lg shadow-amber-600/20 transition-all duration-200 hover:-translate-y-0.5"
               >
                 Create your pet's portrait — it's free
                 <ArrowRight className="ml-2 w-4 h-4" />
@@ -57,7 +46,7 @@ const HeroSection = () => {
                 size="lg"
                 className="font-body text-base px-8 py-6 border-border hover:bg-muted"
               >
-                See all 8 styles
+                See all styles
               </Button>
             </a>
           </div>
@@ -76,48 +65,31 @@ const HeroSection = () => {
           </div>
         </div>
 
-        {/* Before/After Visual */}
+        {/* Before/After with REAL image */}
         <div className="mt-16 md:mt-20 max-w-4xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 items-center">
-            {/* Before — pet photo */}
-            <div className="relative group">
-              <div className="aspect-square rounded-2xl bg-muted border-2 border-dashed border-border flex flex-col items-center justify-center gap-3 p-8">
-                <span className="text-6xl">🐕</span>
-                <span className="font-body text-sm text-muted-foreground">
-                  Your favorite photo
-                </span>
-              </div>
-              <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 bg-background border border-border rounded-full px-3 py-1">
-                <span className="font-body text-xs text-muted-foreground">
-                  Before
-                </span>
-              </div>
-            </div>
-
-            {/* After — portrait */}
-            <div className="relative group">
-              <div className="aspect-square rounded-2xl bg-amber-50 border border-amber-200 flex flex-col items-center justify-center gap-3 p-8 shadow-lg shadow-amber-600/10">
-                <span className="text-6xl">🖼️</span>
-                <span className="font-body text-sm text-amber-700 font-medium">
-                  Frame-worthy masterpiece
-                </span>
-              </div>
-              <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground rounded-full px-3 py-1">
-                <span className="font-body text-xs font-medium">After</span>
-              </div>
-            </div>
+          <div className="relative portrait-frame-gold gallery-hover rounded-lg overflow-hidden">
+            <img
+              src="/images/hero-before-after.png"
+              alt="Before and after: a golden retriever photo transformed into a Renaissance oil painting portrait"
+              className="w-full h-auto"
+              loading="eager"
+            />
           </div>
 
-          {/* Style tags below */}
-          <div className="flex flex-wrap items-center justify-center gap-2 mt-10">
-            {styles.map((style) => (
-              <span
-                key={style.label}
-                className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm font-body font-medium ${style.color}`}
-              >
-                {style.emoji} {style.label}
+          {/* Labels */}
+          <div className="flex justify-between max-w-4xl mx-auto mt-4 px-4">
+            <div className="flex items-center gap-2">
+              <span className="inline-block w-2 h-2 rounded-full bg-muted-foreground/40" />
+              <span className="font-body text-sm text-muted-foreground">
+                Your favorite photo
               </span>
-            ))}
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="inline-block w-2 h-2 rounded-full bg-primary" />
+              <span className="font-body text-sm text-primary font-medium">
+                Frame-worthy masterpiece
+              </span>
+            </div>
           </div>
         </div>
       </div>
