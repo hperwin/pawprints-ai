@@ -1,4 +1,3 @@
-import { Card, CardContent } from "@/components/ui/card";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Star } from "lucide-react";
 
@@ -10,6 +9,7 @@ const testimonials = [
     rating: 5,
     quote:
       "I uploaded a photo of my golden Cooper and picked Renaissance. Genuinely gasped. He looks like a 17th-century duke and it captures HIM — not just 'a golden retriever.' It's framed above our fireplace now.",
+    highlight: true,
   },
   {
     name: "Marcus T.",
@@ -34,6 +34,7 @@ const testimonials = [
     rating: 5,
     quote:
       "I was worried it wouldn't capture their brindle markings but it nailed them. Both dogs, in watercolor, framed side by side for our gotcha day anniversary. My wife teared up when she saw them.",
+    highlight: true,
   },
   {
     name: "Priya M.",
@@ -55,8 +56,11 @@ const testimonials = [
 
 const Testimonials = () => {
   return (
-    <section className="py-24 md:py-32">
-      <div className="container mx-auto px-6">
+    <section className="py-24 md:py-32 relative">
+      {/* Subtle warm gallery-wall background */}
+      <div className="absolute inset-0 bg-[linear-gradient(180deg,_hsl(30_33%_97%),_hsl(30_25%_94%),_hsl(30_33%_97%))]" />
+
+      <div className="container mx-auto px-6 relative">
         <div className="text-center max-w-2xl mx-auto mb-16">
           <h2 className="font-display text-3xl md:text-4xl text-foreground">
             The gift that makes pet lovers cry happy tears.
@@ -67,41 +71,46 @@ const Testimonials = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-          {testimonials.map((t) => (
-            <Card
+        {/* Gallery wall layout — staggered testimonials */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto stagger-children">
+          {testimonials.map((t, idx) => (
+            <div
               key={t.name}
-              className="border border-border bg-card hover:shadow-md transition-all duration-300"
+              className={`gallery-card rounded-xl bg-card border border-border p-8 ${
+                t.highlight
+                  ? "border-amber-200 bg-amber-50/50 lg:transform lg:-rotate-[0.5deg]"
+                  : idx % 3 === 1
+                  ? "lg:transform lg:translate-y-4"
+                  : ""
+              }`}
             >
-              <CardContent className="p-8">
-                <div className="flex gap-0.5 mb-4">
-                  {Array.from({ length: t.rating }).map((_, i) => (
-                    <Star
-                      key={i}
-                      className="w-4 h-4 fill-amber-400 text-amber-400"
-                    />
-                  ))}
+              <div className="flex gap-0.5 mb-4">
+                {Array.from({ length: t.rating }).map((_, i) => (
+                  <Star
+                    key={i}
+                    className="w-4 h-4 fill-amber-400 text-amber-400"
+                  />
+                ))}
+              </div>
+              <blockquote className="font-body text-foreground leading-relaxed mb-6">
+                "{t.quote}"
+              </blockquote>
+              <div className="flex items-center gap-3">
+                <Avatar className="w-10 h-10 border border-amber-200">
+                  <AvatarFallback className="bg-amber-100 text-amber-800 font-body text-sm font-medium">
+                    {t.initials}
+                  </AvatarFallback>
+                </Avatar>
+                <div>
+                  <p className="font-body text-sm font-medium text-foreground">
+                    {t.name}
+                  </p>
+                  <p className="font-body text-xs text-muted-foreground">
+                    {t.title}
+                  </p>
                 </div>
-                <blockquote className="font-body text-foreground leading-relaxed mb-6">
-                  "{t.quote}"
-                </blockquote>
-                <div className="flex items-center gap-3">
-                  <Avatar className="w-10 h-10 bg-amber-100 border border-amber-200">
-                    <AvatarFallback className="bg-amber-100 text-amber-800 font-body text-sm font-medium">
-                      {t.initials}
-                    </AvatarFallback>
-                  </Avatar>
-                  <div>
-                    <p className="font-body text-sm font-medium text-foreground">
-                      {t.name}
-                    </p>
-                    <p className="font-body text-xs text-muted-foreground">
-                      {t.title}
-                    </p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
+              </div>
+            </div>
           ))}
         </div>
       </div>

@@ -1,80 +1,36 @@
-import { Card, CardContent } from "@/components/ui/card";
-
 const styles = [
   {
     name: "Watercolor",
     description:
       "Soft washes, delicate brushstrokes, dreamy feel. Our most popular style — perfect for gifts and memorials.",
-    emoji: "💧",
-    bg: "bg-sky-50",
-    border: "border-sky-200",
-    accent: "text-sky-800",
+    image: "/images/style-watercolor.png",
     tag: "Most Popular",
   },
   {
     name: "Renaissance",
     description:
       "Your pet as a 17th-century noble. Regal pose, dramatic lighting, oil-painting texture. The one that goes viral.",
-    emoji: "🎨",
-    bg: "bg-amber-50",
-    border: "border-amber-200",
-    accent: "text-amber-800",
+    image: "/images/style-renaissance.png",
     tag: "Fan Favorite",
-  },
-  {
-    name: "Oil Painting",
-    description:
-      "Classic, dignified, timeless. Rich colors and visible brushwork — like a portrait that belongs over the fireplace.",
-    emoji: "🖼️",
-    bg: "bg-orange-50",
-    border: "border-orange-200",
-    accent: "text-orange-800",
   },
   {
     name: "Pop Art",
     description:
       "Bold outlines, halftone dots, electric colors. Warhol would approve. Perfect for Instagram and gallery walls.",
-    emoji: "🌈",
-    bg: "bg-pink-50",
-    border: "border-pink-200",
-    accent: "text-pink-800",
-  },
-  {
-    name: "Cartoon",
-    description:
-      "Clean lines, flat colors, playful personality. Modern illustration style that captures your pet's character.",
-    emoji: "✏️",
-    bg: "bg-green-50",
-    border: "border-green-200",
-    accent: "text-green-800",
+    image: "/images/style-pop-art.png",
   },
   {
     name: "Anime",
     description:
       "Big expressive eyes, vibrant colors, manga-style shading. Studio Ghibli energy for your fur baby.",
-    emoji: "✨",
-    bg: "bg-purple-50",
-    border: "border-purple-200",
-    accent: "text-purple-800",
+    image: "/images/style-anime.png",
   },
   {
     name: "Memorial",
     description:
       "A gentle tribute for pets who've crossed the rainbow bridge. Soft light, angel wings, peaceful warmth.",
-    emoji: "🕊️",
-    bg: "bg-slate-50",
-    border: "border-slate-200",
-    accent: "text-slate-700",
+    image: "/images/style-memorial.png",
     tag: "New",
-  },
-  {
-    name: "Impressionist",
-    description:
-      "Monet-inspired brushstrokes, dappled light, garden scenes. Your pet painted like a French masterpiece.",
-    emoji: "🌻",
-    bg: "bg-yellow-50",
-    border: "border-yellow-200",
-    accent: "text-yellow-800",
   },
 ];
 
@@ -93,34 +49,79 @@ const StyleShowcase = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
-          {styles.map((style) => (
-            <Card
-              key={style.name}
-              className={`group overflow-hidden border ${style.border} ${style.bg} transition-all duration-300 hover:shadow-lg hover:-translate-y-1`}
-            >
-              <CardContent className="p-0">
-                <div className="aspect-[4/3] flex items-center justify-center relative">
-                  <span className="text-6xl group-hover:scale-110 transition-transform duration-300">
-                    {style.emoji}
-                  </span>
+        {/* Gallery grid — 2 large on top, 3 below */}
+        <div className="max-w-6xl mx-auto">
+          {/* Top row: 2 featured styles */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+            {styles.slice(0, 2).map((style) => (
+              <div
+                key={style.name}
+                className="group gallery-card rounded-xl overflow-hidden bg-card border border-border"
+              >
+                <div className="gallery-hover gallery-spotlight aspect-[4/3] relative">
+                  <img
+                    src={style.image}
+                    alt={`${style.name} pet portrait style example`}
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                  />
+                  {/* Warm gallery lighting on each portrait */}
+                  <div className="absolute inset-0 bg-gradient-to-b from-amber-50/8 via-transparent to-amber-900/3 pointer-events-none" />
                   {style.tag && (
-                    <span className="absolute top-3 right-3 bg-white/80 backdrop-blur-sm text-xs font-body font-medium px-2 py-0.5 rounded-full border border-black/5">
+                    <span className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm text-xs font-body font-semibold px-3 py-1 rounded-full border border-black/5 shadow-sm">
                       {style.tag}
                     </span>
                   )}
                 </div>
-                <div className="p-5 pt-0">
-                  <h3 className={`font-display text-lg ${style.accent}`}>
+                <div className="p-6">
+                  <h3 className="font-display text-xl text-foreground">
                     {style.name}
                   </h3>
-                  <p className="mt-1 font-body text-xs text-muted-foreground leading-relaxed">
+                  <p className="mt-2 font-body text-sm text-muted-foreground leading-relaxed">
                     {style.description}
                   </p>
                 </div>
-              </CardContent>
-            </Card>
-          ))}
+              </div>
+            ))}
+          </div>
+
+          {/* Bottom row: 3 styles */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+            {styles.slice(2).map((style) => (
+              <div
+                key={style.name}
+                className="group gallery-card rounded-xl overflow-hidden bg-card border border-border"
+              >
+                <div className="gallery-hover gallery-spotlight aspect-square relative">
+                  <img
+                    src={style.image}
+                    alt={`${style.name} pet portrait style example`}
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-b from-amber-50/8 via-transparent to-amber-900/3 pointer-events-none" />
+                  {style.tag && (
+                    <span className="absolute top-3 right-3 bg-white/90 backdrop-blur-sm text-xs font-body font-semibold px-3 py-1 rounded-full border border-black/5 shadow-sm">
+                      {style.tag}
+                    </span>
+                  )}
+                </div>
+                <div className="p-5">
+                  <h3 className="font-display text-lg text-foreground">
+                    {style.name}
+                  </h3>
+                  <p className="mt-1.5 font-body text-xs text-muted-foreground leading-relaxed">
+                    {style.description}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Additional styles mention */}
+          <p className="text-center mt-10 font-body text-sm text-muted-foreground">
+            Plus Oil Painting, Cartoon, and Impressionist styles — 8 total, with new styles added monthly.
+          </p>
         </div>
       </div>
     </section>

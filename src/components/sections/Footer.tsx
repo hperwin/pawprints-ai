@@ -41,29 +41,39 @@ const Footer = () => {
                   FAQ
                 </a>
               </li>
+              <li>
+                <Link to="/alternatives" className="font-body text-sm text-muted-foreground hover:text-foreground transition-colors">
+                  Alternatives
+                </Link>
+              </li>
             </ul>
           </div>
 
-          {/* Company */}
+          {/* Use Cases */}
           <div>
             <h4 className="font-body text-sm font-semibold text-foreground mb-4">
-              Company
+              Use Cases
             </h4>
             <ul className="space-y-3">
               <li>
-                <span className="font-body text-sm text-muted-foreground">
-                  About
-                </span>
+                <Link to="/for/dog-owners" className="font-body text-sm text-muted-foreground hover:text-foreground transition-colors">
+                  Dog Portraits
+                </Link>
               </li>
               <li>
-                <span className="font-body text-sm text-muted-foreground">
+                <Link to="/for/cat-owners" className="font-body text-sm text-muted-foreground hover:text-foreground transition-colors">
+                  Cat Portraits
+                </Link>
+              </li>
+              <li>
+                <Link to="/for/gifts" className="font-body text-sm text-muted-foreground hover:text-foreground transition-colors">
+                  Gift Ideas
+                </Link>
+              </li>
+              <li>
+                <Link to="/blog/pet-photo-renaissance-masterpiece" className="font-body text-sm text-muted-foreground hover:text-foreground transition-colors">
                   Blog
-                </span>
-              </li>
-              <li>
-                <span className="font-body text-sm text-muted-foreground">
-                  Contact
-                </span>
+                </Link>
               </li>
             </ul>
           </div>
