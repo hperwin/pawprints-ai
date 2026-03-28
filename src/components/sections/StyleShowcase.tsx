@@ -58,13 +58,15 @@ const StyleShowcase = () => {
                 key={style.name}
                 className="group gallery-card rounded-xl overflow-hidden bg-card border border-border"
               >
-                <div className="gallery-hover aspect-[4/3] relative">
+                <div className="gallery-hover gallery-spotlight aspect-[4/3] relative">
                   <img
                     src={style.image}
                     alt={`${style.name} pet portrait style example`}
                     className="w-full h-full object-cover"
                     loading="lazy"
                   />
+                  {/* Warm gallery lighting on each portrait */}
+                  <div className="absolute inset-0 bg-gradient-to-b from-amber-50/8 via-transparent to-amber-900/3 pointer-events-none" />
                   {style.tag && (
                     <span className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm text-xs font-body font-semibold px-3 py-1 rounded-full border border-black/5 shadow-sm">
                       {style.tag}
@@ -90,13 +92,14 @@ const StyleShowcase = () => {
                 key={style.name}
                 className="group gallery-card rounded-xl overflow-hidden bg-card border border-border"
               >
-                <div className="gallery-hover aspect-square relative">
+                <div className="gallery-hover gallery-spotlight aspect-square relative">
                   <img
                     src={style.image}
                     alt={`${style.name} pet portrait style example`}
                     className="w-full h-full object-cover"
                     loading="lazy"
                   />
+                  <div className="absolute inset-0 bg-gradient-to-b from-amber-50/8 via-transparent to-amber-900/3 pointer-events-none" />
                   {style.tag && (
                     <span className="absolute top-3 right-3 bg-white/90 backdrop-blur-sm text-xs font-body font-semibold px-3 py-1 rounded-full border border-black/5 shadow-sm">
                       {style.tag}

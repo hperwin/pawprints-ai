@@ -6,8 +6,9 @@ import { ArrowRight, Palette, Clock, Sparkles } from "lucide-react";
 const HeroSection = () => {
   return (
     <section className="relative pt-32 pb-24 md:pt-40 md:pb-32 overflow-hidden">
-      {/* Warm radial background */}
+      {/* Warm radial background + canvas texture for gallery feel */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_hsl(38_90%_44%_/_0.06),_transparent_70%)]" />
+      <div className="absolute inset-0 paper-texture" />
 
       <div className="container mx-auto px-6 relative">
         <div className="max-w-3xl mx-auto text-center fade-in-up">
@@ -67,13 +68,15 @@ const HeroSection = () => {
 
         {/* Before/After with REAL image */}
         <div className="mt-16 md:mt-20 max-w-4xl mx-auto">
-          <div className="relative portrait-frame-gold gallery-hover rounded-lg overflow-hidden">
+          <div className="relative portrait-frame-gold gallery-hover gallery-spotlight rounded-lg overflow-hidden canvas-texture">
             <img
               src="/images/hero-before-after.png"
               alt="Before and after: a golden retriever photo transformed into a Renaissance oil painting portrait"
               className="w-full h-auto"
               loading="eager"
             />
+            {/* Warm gallery lighting overlay */}
+            <div className="absolute inset-0 bg-gradient-to-b from-amber-50/10 via-transparent to-amber-900/5 pointer-events-none" />
           </div>
 
           {/* Labels */}

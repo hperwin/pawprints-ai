@@ -16,11 +16,11 @@ interface PaywallModalProps {
 }
 
 const perks = [
-  "Unlimited portraits in all 5 styles",
-  "High-res 2048x2048 downloads",
-  "No watermarks",
-  "New styles every month",
-  "Priority generation speed",
+  "Unlimited portraits in all 8 styles",
+  "Print-ready 300 DPI downloads in 5 frame sizes",
+  "No watermarks + full commercial rights",
+  "Multi-pet portraits, backgrounds, frame options",
+  "Gift cards, favorites gallery, new styles monthly",
 ];
 
 const PaywallModal = ({ open, onOpenChange }: PaywallModalProps) => {
