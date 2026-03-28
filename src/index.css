@@ -274,4 +274,126 @@
     pointer-events: none;
     z-index: 1;
   }
+
+  /* Gold shimmer on frame edges */
+  .portrait-frame-shimmer {
+    position: relative;
+  }
+
+  .portrait-frame-shimmer::after {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(217, 119, 6, 0.3) 25%,
+      rgba(251, 191, 36, 0.5) 50%,
+      rgba(217, 119, 6, 0.3) 75%,
+      transparent 100%
+    );
+    background-size: 200% 100%;
+    animation: shimmerGold 3s ease-in-out infinite;
+    border-radius: inherit;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .portrait-frame-shimmer:hover::after {
+    opacity: 1;
+  }
+
+  /* Rotating dashed border for upload area */
+  @keyframes rotateDashes {
+    from { stroke-dashoffset: 0; }
+    to { stroke-dashoffset: -20; }
+  }
+
+  .upload-area-active svg.dash-border {
+    animation: rotateDashes 0.5s linear infinite;
+  }
+
+  /* Tab underline slide animation */
+  .tab-underline {
+    position: relative;
+  }
+
+  .tab-underline::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: hsl(38 90% 44%);
+    transform: scaleX(0);
+    transition: transform 0.2s ease-out;
+    transform-origin: center;
+  }
+
+  .tab-underline[data-active="true"]::after {
+    transform: scaleX(1);
+  }
+
+  /* Warm tooltip */
+  .tooltip-warm {
+    background: hsl(38 60% 25%);
+    color: hsl(30 33% 97%);
+    border-radius: 8px;
+    padding: 6px 12px;
+    font-size: 13px;
+  }
+
+  /* Pro glow for badges */
+  .pro-glow {
+    box-shadow: 0 0 8px rgba(217, 119, 6, 0.25), 0 0 16px rgba(217, 119, 6, 0.1);
+  }
+
+  /* Feature lock bounce */
+  @keyframes lockBounce {
+    0%, 100% { transform: translateY(0); }
+    30% { transform: translateY(-4px); }
+    60% { transform: translateY(-2px); }
+  }
+
+  .lock-bounce:hover {
+    animation: lockBounce 0.4s ease-out;
+  }
+
+  /* Safe area for mobile bottom nav */
+  .safe-area-bottom {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+}
+
+/* Gold shimmer keyframe */
+@keyframes shimmerGold {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* Toast slide-in */
+@keyframes toastSlideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.toast-slide-in {
+  animation: toastSlideIn 0.3s ease-out;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
