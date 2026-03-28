@@ -10,6 +10,18 @@ import ForgotPassword from "./pages/ForgotPassword";
 import Dashboard from "./pages/Dashboard";
 import NotFound from "./pages/NotFound";
 
+// App pages (inside app shell)
+import AppLayout from "./components/app-shell/AppLayout";
+import CreatePortrait from "./pages/app/CreatePortrait";
+import Gallery from "./pages/app/Gallery";
+import GiftCenter from "./pages/app/GiftCenter";
+import PrintShop from "./pages/app/PrintShop";
+import PetProfiles from "./pages/app/PetProfiles";
+import AppSettings from "./pages/app/AppSettings";
+import AppPricing from "./pages/app/AppPricing";
+import Help from "./pages/app/Help";
+import Changelog from "./pages/app/Changelog";
+
 // SEO pages
 import VsCrownAndPaw from "./pages/seo/VsCrownAndPaw";
 import VsWestAndWillow from "./pages/seo/VsWestAndWillow";
@@ -37,6 +49,80 @@ const App = () => (
           <Route path="/signup" element={<Signup />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route path="/dashboard" element={<Dashboard />} />
+
+          {/* App shell routes */}
+          <Route
+            path="/app/create"
+            element={
+              <AppLayout>
+                <CreatePortrait />
+              </AppLayout>
+            }
+          />
+          <Route
+            path="/app/gallery"
+            element={
+              <AppLayout>
+                <Gallery />
+              </AppLayout>
+            }
+          />
+          <Route
+            path="/app/gifts"
+            element={
+              <AppLayout>
+                <GiftCenter />
+              </AppLayout>
+            }
+          />
+          <Route
+            path="/app/print-shop"
+            element={
+              <AppLayout>
+                <PrintShop />
+              </AppLayout>
+            }
+          />
+          <Route
+            path="/app/pets"
+            element={
+              <AppLayout>
+                <PetProfiles />
+              </AppLayout>
+            }
+          />
+          <Route
+            path="/app/settings"
+            element={
+              <AppLayout>
+                <AppSettings />
+              </AppLayout>
+            }
+          />
+          <Route
+            path="/app/pricing"
+            element={
+              <AppLayout>
+                <AppPricing />
+              </AppLayout>
+            }
+          />
+          <Route
+            path="/app/help"
+            element={
+              <AppLayout>
+                <Help />
+              </AppLayout>
+            }
+          />
+          <Route
+            path="/app/changelog"
+            element={
+              <AppLayout>
+                <Changelog />
+              </AppLayout>
+            }
+          />
 
           {/* SEO comparison and use-case pages */}
           <Route path="/vs/crown-and-paw" element={<VsCrownAndPaw />} />

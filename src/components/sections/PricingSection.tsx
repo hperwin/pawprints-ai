@@ -9,7 +9,7 @@ import { Check, X } from "lucide-react";
 const PricingSection = () => {
   const [annual, setAnnual] = useState(false);
 
-  const proPrice = annual ? "$7.19" : "$8.99";
+  const proPrice = annual ? "$12.42" : "$14.99";
   const proPeriod = annual ? "/mo, billed yearly" : "/month";
 
   const plans = [
@@ -17,34 +17,38 @@ const PricingSection = () => {
       name: "Free",
       price: "$0",
       period: "forever",
-      description: "See the quality for yourself. No credit card.",
+      description: "See the quality for yourself. 3 portraits, no credit card.",
       cta: "Create Your Free Portrait",
       ctaVariant: "outline" as const,
       highlight: false,
       features: [
-        { text: "1 portrait", included: true },
-        { text: "Standard resolution (1024x1024)", included: true },
-        { text: "All 8 styles including Memorial", included: true },
-        { text: "Watermark-free", included: false },
-        { text: "Commercial rights", included: false },
-        { text: "Priority generation", included: false },
+        { text: "3 portraits", included: true },
+        { text: "3 styles (Renaissance, Watercolor, Anime)", included: true },
+        { text: "Web resolution (1024x1024)", included: true },
+        { text: "Print-ready 300 DPI", included: false },
+        { text: "Custom backgrounds & frames", included: false },
+        { text: "Multi-pet portraits", included: false },
+        { text: "Gift cards", included: false },
+        { text: "No watermark", included: false },
       ],
     },
     {
       name: "Pro",
       price: proPrice,
       period: proPeriod,
-      description: "Unlimited portraits. Print-ready quality. Full commercial rights.",
+      description: "Unlimited portraits. All 8 styles. Print-ready quality. Full creative control.",
       cta: "Start Free Trial",
       ctaVariant: "default" as const,
       highlight: true,
       features: [
         { text: "Unlimited portraits", included: true },
-        { text: "Print-ready downloads (2048x2048)", included: true },
         { text: "All 8 styles + new monthly drops", included: true },
-        { text: "Watermark-free", included: true },
-        { text: "Full commercial rights", included: true },
-        { text: "Priority generation", included: true },
+        { text: "Print-ready downloads (300 DPI)", included: true },
+        { text: "Custom backgrounds & frames", included: true },
+        { text: "Multi-pet portraits (up to 4)", included: true },
+        { text: "Gift cards & sharing", included: true },
+        { text: "Style intensity slider", included: true },
+        { text: "No watermark + priority generation", included: true },
       ],
     },
   ];
@@ -80,7 +84,7 @@ const PricingSection = () => {
           </span>
           {annual && (
             <Badge className="bg-amber-100 text-amber-800 border border-amber-200 font-body text-xs">
-              Save 20%
+              Save 17%
             </Badge>
           )}
         </div>

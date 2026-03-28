@@ -1,7 +1,9 @@
 import Navbar from "@/components/sections/Navbar";
 import HeroSection from "@/components/sections/HeroSection";
 import SocialProof from "@/components/sections/SocialProof";
+import InteractiveDemo from "@/components/sections/InteractiveDemo";
 import StyleShowcase from "@/components/sections/StyleShowcase";
+import OutputGallery from "@/components/sections/OutputGallery";
 import HowItWorks from "@/components/sections/HowItWorks";
 import FeaturesBento from "@/components/sections/FeaturesBento";
 import PricingSection from "@/components/sections/PricingSection";
@@ -16,7 +18,9 @@ const Index = () => {
       <Navbar />
       <HeroSection />
       <SocialProof />
+      <InteractiveDemo />
       <StyleShowcase />
+      <OutputGallery />
       <HowItWorks />
       <FeaturesBento />
       <PricingSection />
